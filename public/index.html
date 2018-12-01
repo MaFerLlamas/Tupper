@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Porciones</title>
+<link rel="stylesheet" href="tupperStyle.css"/>
+<link href="https://fonts.googleapis.com/css?family=Anton|Source+Sans+Pro:400,900" rel="stylesheet">
+</head>
+<body>
+	<!-- SCHEDULER -->
+	<div class="container-scheduler">
+		<!-- TOP -->
+		<div class="top-sheduler">
+			<div class="option">
+				<img src="assets/back.png"/>
+			</div>
+			<div class="container-day">
+				<div class="lbl-config">FORMA ESTRICTA</div>
+				<div class="switch off">
+					<div class="lbl-opt">
+					</div>
+				</div>
+			</div>
+			<div>Guardar Día</div>
+			<div class="container-week">
+				<div>Agregar a Semana</div>
+				<div class="option"><img src="assets/add.png"></div>
+			</div>
+			<div class="portions-meal">
+				<div class="counter-portion">
+					hola
+				</div>
+			</div>
+		</div>
+		<!-- CENTER -->
+		<div class="center-sheduler">
+			<div class="modal-select">
+				<div class="lbl-select">Cereales</div>
+				<div class="search-bar">
+					<input placeholder="busca"/>
+					<img src="assets/search.png"/>
+				</div>
+			</div>
+			<!-- BREAKFAST -->
+			<div class="container-meal">
+				<div class="lbl-meal">DESAYUNO</div>
+				
+				<div id="breakfast" class="meal">
+					<div class="portion">
+						CEREAL
+					</div>
+					<div class="portion">
+						LACTEO
+					</div>
+					<div class="portion">
+							CEREAL
+						</div>
+						<div class="portion">
+							LACTEO
+						</div>
+					<!-- <div class="options">
+						<div class="option">
+							<img src="assets/transfer.png"/>
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<!-- END BREAKFAST -->
+		</div>
+	</div>
+	<!-- END SCHEDULER -->
+	
+	<!-- PORTIONS -->
+	<div class="container">
+		<h1>Porciones</h1>
+		<div id="content-add">
+			<form method="POST" action="" >
+				<p>
+					<label class="add-field" for="txtNombrePorcion">Nombre </label>
+					<input class="add-field" id="txtNombrePorcion" name="nombrePorcion" type="text"/>
+				</p>
+				<p>
+
+					<label class="add-field" for="cmbGrupoPorcion">Grupo </label>
+					<select class="add-field" id="cmbGrupoPorcion" name="grupoPorcion" required>
+						<option value="verduras">Verduras</option>
+						<option value="frutas">Frutas</option>
+						<optgroup label="cereales">
+							<option value="cerealS/g">sin grasa</option>
+							<option value="cerealC/g">con grasa</option>
+						</optgroup>
+						<option value="leguminosas">Leguminosas</option>
+						<optgroup label="De Origen Animal">
+							<option value="aoaA">muy bajo en grasa</option>
+							<option value="aoaB">bajo en grasa</option>
+							<option value="aoaC">moderado grasa</option>
+							<option value="aoaD">alto en grasa</option>
+						</optgroup>
+						<optgroup label="Lácteos">
+							<option value=lecheA>descremada</option>
+							<option value=lecheB>semidescremada</option>
+							<option value=lecheC>entera</option>
+							<option value=lecheC>con Azúcar</option>
+						</optgroup>
+						<optgroup label="Grasas">
+							<option value="grasasC/p">Grasas con Proteína</option>
+							<option value="grasasS/p">Grasas sin Proteína</option>
+
+						</optgroup>
+						<option value="azucaresS/G">Azúcares sin Grasa</option>
+					</select>
+				</p>
+				<p>
+					<label class="add-field" for="rbFrecuenciaPorcion">Frecuencia con la que puede ser consumido</label>
+					<br/>
+					<label class="add-field" for="rbSiempre">Siempre</label>
+					<input  id="rbSiempre" name="frecuenciaPorcion" type="radio"></input><br/>
+					<label class="add-field" for="rbTresODos">Dos o Tres a la Semana</label>
+					<input  id="rbTresODos" name="frecuenciaPorcion" type="radio"></input><br/>
+					<label class="add-field" for="rbUna">Una vez</label>
+					<input  id="rbUna" name="frecuenciaPorcion" type="radio"></input>
+				</p>
+				<p>
+					
+					<label class="add-field" for="txtCant">Cantidad</label>
+					<input class="add-field" id="txtCant" name="cantidad" type="text"/>
+					
+					<select class="add-field" id="cmbMedida" name="medida">
+						<option value="tzas">Tazas</option>
+						<option value="pzas">Piezas</option>
+						<option value="cdas">Cucharadas</option>
+						<option value="rebanada">Rebanadas</option>
+						<option value="cditas">Cucharaditas</option>
+						<option value="mitades">Mitades</option>
+						<option value="gramos">Gramos</option>
+					</select>
+				</p>
+			</form>
+		</div>
+		<div id="content-modify">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Grupo</th>
+						<th>Cantidad</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- END PORTIONS -->
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyADw4Wo_6ZDXaTcWMT_Sld5JsRloIgmxUE",
+		authDomain: "tupper-6950e.firebaseapp.com",
+		databaseURL: "https://tupper-6950e.firebaseio.com",
+		projectId: "tupper-6950e",
+		storageBucket: "tupper-6950e.appspot.com",
+		messagingSenderId: "898571757235"
+	};
+	firebase.initializeApp(config);
+	</script>
+	<script src="tupperScript.js"></script>
+</body>
+</html>
