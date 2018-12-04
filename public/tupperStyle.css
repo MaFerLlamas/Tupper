@@ -16,9 +16,9 @@ h1{
 .top-sheduler{
     width: 100vw;
     height: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr;
+    grid-template-rows: 45px 1fr;
 }
 
 .container-day{
@@ -71,6 +71,42 @@ h1{
     box-shadow: -1px 1px 2px 1px rgba(68, 68, 68, 0.445);
 } 
 
+.portions-meal{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.counter-portion{
+    display: inline-block;
+    line-height: 45px;
+    background-color: red;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.semi-circle{
+    text-align: center;
+    width: 45px;
+    height: 22.5px;
+    line-height: 22.5px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.semi-circle:hover{
+}
+
+.plus{  
+    border-radius: 22.5px 22.5px 0 0;
+    background-color: rgba(136, 14, 14, 0.692);
+}
+
+.less{
+    border-radius: 0 0 22.5px 22.5px;
+    background-color: rgba(23, 104, 151, 0.671);
+}
 
 .center-sheduler{
     overflow: hidden;
@@ -103,6 +139,10 @@ h1{
     width: 100%;
     height: calc(100vh - 100px);
     border: 2px solid black;
+}
+
+.container-meal:focus{ 
+    background-color: yellow;
 }
 
 .lbl-meal{
@@ -138,9 +178,9 @@ h1{
 }
 
 .option{
-    line-height: 70px;
-    width: 52px;
-    height: 52px;
+    line-height: 55px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background-color: rgba(97, 93, 93, 0.384);
     text-align: center; 
