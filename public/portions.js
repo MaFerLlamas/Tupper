@@ -2,10 +2,10 @@ let portions =
 {
     frutas: {
         manzana: {
-            nombre: "",
+            nombre: "manzana",
             frecuencia: 0,
-            cantidad: "",
-            medida: ""
+            cantidad: "1",
+            medida: "pza"
         }  
     }
         
