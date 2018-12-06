@@ -13,6 +13,70 @@ h1{
     font-weight: 700;
 }
 
+.vegetables{
+    background-color: rgba(8, 165, 8, 0.603);
+}
+
+.fruits{
+    background-color: rgba(219, 223, 10, 0.603);
+}
+
+.cereal1{
+    background-color: rgba(243, 115, 30, 0.685);
+}
+
+.cereal2{
+    background-color: rgb(248, 149, 35);
+}
+
+.legume{
+    background-color: rgba(17, 4, 4, 0.603);
+}
+
+.animalA{
+    background-color: rgba(165, 8, 8, 0.603);
+}
+
+.animalB{
+    background-color: rgba(165, 8, 8, 0.726);
+}
+
+.animalC{
+    background-color: rgba(165, 8, 8, 0.911);
+}
+
+.animalD{
+    background-color: rgb(165, 8, 8);
+}
+
+.milkA{
+    background-color: rgba(55, 8, 165, 0.603);
+}
+
+.milkB{
+    background-color: rgba(55, 8, 165, 0.726);
+}
+
+.milkC{
+    background-color: rgba(55, 8, 165, 0.911);
+}
+
+.milkD{
+    background-color: rgb(45, 10, 128);
+}
+
+.gras1{
+    background-color: rgba(141, 223, 10, 0.719);
+}
+
+.gras2{
+    background-color: rgb(141, 223, 10);
+}
+
+.sugar1{
+    background-color: rgba(165, 8, 157, 0.603);
+}
+
 .top-sheduler{
     width: 100vw;
     height: 118px;
@@ -96,13 +160,15 @@ h1{
 
 .counter-portion{
     line-height: 45px;
-    background-color: red;
     width: 45px;
     height: 45px;
     border-radius: 50%;
     position: relative;
 }
 
+.counter{
+    text-align: center;
+}
 
 .semi-circle{
     text-align: center;
@@ -148,7 +214,7 @@ h1{
     height: calc(100vh - 128px);
     overflow: hidden;
     background-color: rgb(128, 128, 128);
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -181,7 +247,6 @@ h1{
 }
 
 .portion{
-    background: rgba(128, 128, 128, 0.349);
     width: 98%;
     height: 50px;
     border: 1px solid black;
