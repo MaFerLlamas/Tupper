@@ -54,6 +54,61 @@ function classToName(nameclass){
     return aux;
   }
 
+  function NameToClass(name){
+    let aux;
+    switch(name){
+      case "vegetales":
+        aux="vegetables";
+        break;
+      case "frutas":
+        aux="fruits";
+        break;
+      case "cereal S/G":
+        aux="cereal1";
+        break;
+      case "cereal C/G":
+        aux="cereal2";
+        break;
+      case "legumbre":
+        aux="legume";
+        break;
+      case "AOA A":
+        aux="animalA";
+        break;
+      case "AOA B":
+        aux="animalB";
+        break;
+      case "AOA C":
+        aux="animalC";
+        break;
+      case "AOA D":
+        aux="animalD";
+        break;
+      case "Leche A":
+        aux="milkA";
+        break;
+      case "Leche B":
+        aux="milkB";
+        break;
+      case "Leche C":
+        aux="milkC";
+        break;
+      case "Leche D":
+        aux="milkD";
+        break;
+      case "grasa C/P":
+        aux="gras1";
+        break;
+      case "grasa S/P":
+        aux="gras2";
+        break;
+      case "Azúcar S/G":
+        aux="sugar1";
+        break;
+    }
+    return aux;
+  }
+
 let portions = 
 {
     frutas: {
@@ -62,7 +117,13 @@ let portions =
             frecuencia: 0,
             cantidad: "1",
             medida: "pza"
-        }  
+        },
+        platano: {
+          nombre: "platano",
+          frecuencia: 0,
+          cantidad: "1",
+          medida: "pza"
+      }  
     }
         
 }

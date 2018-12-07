@@ -5,6 +5,8 @@ let btnSwitch = document.querySelector('.switch');
 let isStrict = true;
 let numGroups = 16;
 let containerCounter = document.querySelectorAll('.container-counter');
+let portionsModals;
+let beforeColor;
 
 let counters = {
   
@@ -58,12 +60,52 @@ let userPlan = {
 }
 
 initialize();
+function generateOptions(){
+  return options;
+}
 
+function showSearch(e){
+  // al the portions are showed in the modal
+  let lblText = e.target.innerText;
+  let lbl = document.querySelector('.lbl-select')
+  let search = document.querySelector('.modal-select');
+  let box = document.querySelector('.modal-color');
+
+  lbl.innerText = lblText;
+  box.classList.remove(beforeColor);
+  box.classList.add(NameToClass(lblText));
+  box.innerHTML = "";
+
+  for (i in portions[lblText]){
+    console.log(i);
+    
+    box.innerHTML += `<div class="portion-box frecuency${portions[lblText][i].frecuencia}"> 
+        ${portions[lblText][i].nombre}
+        ${portions[lblText][i].cantidad}
+        ${portions[lblText][i].medida}
+        
+    </div>`
+
+  }
+
+  search.classList.remove('.show-modal');
+  search.classList.add('show-modal');
+  beforeColor = NameToClass(lblText);
+
+
+}
+
+function setListenerToPortions(){
+  portionsModal = document.querySelectorAll('.portion');
+  for (let i = 0; i < portionsModal.length; i++){
+    portionsModal[i].addEventListener('click',showSearch);
+  }
+}
 
 function takeUserPlan(){
   // iterates 5 types of meal
   let actualMeal;
-  let aux;
+  let aux = ``;
   for(i in userPlan){
     actualMeal = document.querySelector('#' + i);
     // actualMeal.innerHTML = "";
@@ -71,19 +113,16 @@ function takeUserPlan(){
     // iterates through the group content in every meal
     for (e in userPlan[i]){
       counters[e] += userPlan[i][e];
-      console.log(e);
-      aux += `<div class="portion ${e}">
-				CEREAL
+      aux += `<div class="portion ${e} portion-box"> 
+        ${classToName(e)}
       </div>`
-      console.log("meal" + actualMeal);
-      console.log("group" + aux);
       actualMeal.innerHTML += aux;
       aux = ``;
     }
   }
 }
 
-function showPortions(){
+function showCounterPortions(){
   let cont = 0;
   for(i in counters){
     containerCounter[cont].classList.remove('visible');
@@ -104,7 +143,7 @@ btnSwitch.addEventListener('click',function(){
   isStrict = !isStrict;
   btnSwitch.classList.toggle('on');
   btnSwitch.classList.toggle('off');
-  showPortions();
+  showCounterPortions();
 });
 
 function writePortionData() {
@@ -119,7 +158,8 @@ function writePortionData() {
  function initialize(){
   isEstrict = false;
   takeUserPlan();
-  showPortions();
+  showCounterPortions();
+  setListenerToPortions()
  }
 
 
