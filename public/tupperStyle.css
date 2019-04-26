@@ -17,11 +17,11 @@ h1{
     background-color: rgb(21, 119, 34);
 }
 
-.frecuency1{
-    background-color: rgb(143, 179, 13);
+.frecuency2{
+    background-color: rgb(191, 241, 7);
 }
 
-.frecuency2{
+.frecuency1{
     background-color: rgb(255, 31, 31);
 }
 
@@ -101,7 +101,7 @@ h1{
     justify-content: space-around;
 }
 
-.container-day{
+.container-switch{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -134,25 +134,25 @@ h1{
     background-color: rgb(140, 141, 141);
 } 
 
-.lbl-opt{
+.switch-opt{
     width: 20px;
     height: 20px;
     border-radius: 50%;
 } 
 
-.on>.lbl-opt{
+.on>.switch-opt{
     margin-left: auto;
     background-color: rgb(3, 112, 70);
     box-shadow: 1px 1px 2px 1px rgba(68, 68, 68, 0.445);
 } 
 
-.off>.lbl-opt{
+.off>.switch-opt{
     margin-right: auto;
     background-color: rgb(212, 221, 218);
     box-shadow: -1px 1px 2px 1px rgba(68, 68, 68, 0.445);
 } 
 
-.portions-meal{
+.container-counters{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -171,12 +171,16 @@ h1{
     text-align: center;
 }
 
-.counter-portion{
+.circle-counter{
     line-height: 45px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
     position: relative;
+}
+
+.circle-counter:hover{
+    background-color: white;
 }
 
 .counter{
@@ -194,13 +198,13 @@ h1{
 }
 
 .semi-circle:hover{
-    opacity: 0.7;
+    opacity: 1;
 }
 .plus{  
     line-height: 12px;
     top: 0;
     border-radius: 22.5px 22.5px 0 0;
-    background-color: rgba(136, 14, 14, 0.692);
+    background-color: rgba(181, 14, 14, 0.692);
 }
 
 .less{
@@ -215,7 +219,7 @@ h1{
     display: grid;
     grid-template-columns: repeat(5,20vw);
     height: calc(100vh - 118px);
-    border: 2px dotted black;  
+    border: 2px solid black;  
     
 }
 
@@ -232,7 +236,7 @@ h1{
     /* background-color: rgb(179, 236, 161); */
 }
 
-.modal-color{
+.container-choices{
     display: flex;
     overflow: auto;
     flex-direction: column;
@@ -255,7 +259,7 @@ h1{
     border: 2px solid rgb(243, 238, 238);
 }
 
-.search-bar{
+.container-search{
     font-family: 'Anton', sans-serif;
 }
 

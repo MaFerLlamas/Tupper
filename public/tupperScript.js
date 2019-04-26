@@ -5,8 +5,13 @@ let btnSwitch = document.querySelector('.switch');
 let isStrict = true;
 let numGroups = 16;
 let containerCounter = document.querySelectorAll('.container-counter');
-let portionsModals;
 let beforeColor;
+let searchBar = document.querySelector('.container-search');
+let portionText;
+searchBar.addEventListener('input',showSearch);
+
+
+let portionsOptions; // clickeable portion
 
 let counters = {
   
@@ -60,45 +65,105 @@ let userPlan = {
 }
 
 initialize();
-function generateOptions(){
-  return options;
+
+function showSearch(){
+  let searchWord = document.querySelector('#input-search').value;
+  let lblSelect = portionText.innerText;
+  let box = document.querySelector('.container-choices');
+  
+  
+  for (i in portions[lblText]){
+   
+    if (i == searchWord){
+        box.innerHTML = "";
+        box.innerHTML += `<div class="container-choice portion-box frecuency${portions[lblSelect][i].frecuencia}"> 
+        ${portions[lblSelect][i].nombre}
+        ${portions[lblSelect][i].cantidad}
+        ${portions[lblSelect][i].medida}
+        
+      </div>`
+    }
+    
+
+  }
+
 }
 
-function showSearch(e){
-  // al the portions are showed in the modal
-  let lblText = e.target.innerText;
-  let lbl = document.querySelector('.lbl-select')
-  let search = document.querySelector('.modal-select');
-  let box = document.querySelector('.modal-color');
+function getModalPosition(meal){
+  switch(meal)
+  {
+    case "morning":
+      
+      break;
+    case "snack1":
+      
+      break;
+    case "afternoon":
+      
+      break;
+    case "snack2":
+      
+      break;
+    case "evening":
+      
+      break;
+    default:
+      console.log("other day")
+    break;
+  }
+}
 
-  lbl.innerText = lblText;
+function showAll(e){
+  // al the portions are showed in the modal
+  portionText = e.target;
+  let actualSelected = e.target;
+  let lblSelect = actualSelected.innerText;
+
+
+  getModalPosition(actualSelected.parentNode.id);
+
+  let lbl = document.querySelector('.lbl-select')
+  let modalSelect = document.querySelector('.modal-select');
+  let box = document.querySelector('.container-choices');
+
+  lbl.innerText = lblSelect;
   box.classList.remove(beforeColor);
-  box.classList.add(NameToClass(lblText));
+  box.classList.add(NameToClass(lblSelect));
   box.innerHTML = "";
 
-  for (i in portions[lblText]){
-    console.log(i);
+  for (i in portions[lblSelect]){
     
-    box.innerHTML += `<div class="portion-box frecuency${portions[lblText][i].frecuencia}"> 
-        ${portions[lblText][i].nombre}
-        ${portions[lblText][i].cantidad}
-        ${portions[lblText][i].medida}
+    box.innerHTML += `<div class="container-choice portion-box frecuency${portions[lblSelect][i].frecuencia}"> 
+        ${portions[lblSelect][i].nombre}
+        ${portions[lblSelect][i].cantidad}
+        ${portions[lblSelect][i].medida}
         
     </div>`
 
   }
 
-  search.classList.remove('.show-modal');
-  search.classList.add('show-modal');
-  beforeColor = NameToClass(lblText);
+  let allPortionBox = document.querySelectorAll('.container-choice');
+
+  for (let i = 0; i < allPortionBox.length; i++){
+    allPortionBox[i].addEventListener('click',function(e){
+      console.log(e.target.innerText);;
+      portionText.innerText = e.target.innerText;
+    });
+  }
+
+  modalSelect.classList.remove('.show-modal');
+  modalSelect.classList.add('show-modal');
+  modalSelect.style.left = "42vw";
+
+  beforeColor = NameToClass(lblSelect);
 
 
 }
 
 function setListenerToPortions(){
-  portionsModal = document.querySelectorAll('.portion');
-  for (let i = 0; i < portionsModal.length; i++){
-    portionsModal[i].addEventListener('click',showSearch);
+  portionsOptions = document.querySelectorAll('.portion');
+  for (let i = 0; i < portionsOptions.length; i++){
+    portionsOptions[i].addEventListener('click',showAll);
   }
 }
 
@@ -159,7 +224,7 @@ function writePortionData() {
   isEstrict = false;
   takeUserPlan();
   showCounterPortions();
-  setListenerToPortions()
+  setListenerToPortions();
  }
 
 
