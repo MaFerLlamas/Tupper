@@ -6,10 +6,16 @@ let isStrict = true;
 let numGroups = 16;
 let containerCounter = document.querySelectorAll('.container-counter');
 let beforeColor;
-let searchBar = document.querySelector('.container-search');
 let portionText;
-searchBar.addEventListener('input',showSearch);
 
+// modal
+let closeModal = document.querySelector('.close');
+closeModal.addEventListener('click',function(){
+  let modalSelect = document.querySelector('.modal-select');
+  modalSelect.classList.remove('show-modal');
+});
+let searchBar = document.querySelector('.container-search');
+searchBar.addEventListener('input',showSearch);
 
 let portionsOptions; // clickeable portion
 
@@ -151,7 +157,7 @@ function showAll(e){
     });
   }
 
-  modalSelect.classList.remove('.show-modal');
+  modalSelect.classList.remove('show-modal');
   modalSelect.classList.add('show-modal');
   modalSelect.style.left = "42vw";
 
